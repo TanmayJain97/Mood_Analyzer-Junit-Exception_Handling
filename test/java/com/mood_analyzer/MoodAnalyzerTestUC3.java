@@ -7,7 +7,7 @@ import org.junit.rules.ExpectedException;
 public class MoodAnalyzerTestUC3 {
 
 	private NewMoodAnalyser analyser;
-	
+
 	//Testing for Sad case
 	@Test
 	public void message_WhenSad_MustReturn_Sad() {
@@ -20,7 +20,7 @@ public class MoodAnalyzerTestUC3 {
 			e.printStackTrace();
 		}
 	}
-	
+
 	//Testing for other case
 	@Test
 	public void message_WhenNotSad_MustReturn_Happy() {
@@ -33,7 +33,7 @@ public class MoodAnalyzerTestUC3 {
 			e.printStackTrace();
 		}
 	}
-	
+
 	//Testing when Null is passed
 	@Test
 	public void message_WhenNull_MustThrowException() {
@@ -46,17 +46,17 @@ public class MoodAnalyzerTestUC3 {
 			e.printStackTrace();
 		}
 	}
-	
+
 	//Testing for Empty
-		@Test
-		public void message_WhenEmpty_MustThrowException() {
-			analyser = new NewMoodAnalyser("I am feeling Empty");
-			try {
-				ExpectedException exceptionRule=ExpectedException.none();
-				exceptionRule.expect(MoodAnalysisException.class);
-				Assert.assertEquals("EMPTY", analyser.analyzeMessage());
-			} catch (MoodAnalysisException e) {
-				e.printStackTrace();
-			}
+	@Test
+	public void message_WhenEmpty_MustThrowException() {
+		analyser = new NewMoodAnalyser("");
+		try {
+			ExpectedException exceptionRule=ExpectedException.none();
+			exceptionRule.expect(MoodAnalysisException.class);
+			Assert.assertEquals("EMPTY", analyser.analyzeMessage());
+		} catch (MoodAnalysisException e) {
+			e.printStackTrace();
 		}
+	}
 }
